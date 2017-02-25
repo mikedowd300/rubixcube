@@ -1,0 +1,133 @@
+#wpromptX, #gpromptX, #rpromptX, #bpromptX, #ypromptX, #opromptX {
+  background-color: white;
+  -webkit-animation: widthMove 2s .5s linear,
+             heightMove 2s .5s linear,
+             colorChange 2.5s linear,
+             xHome 2s .5s linear,             
+             topMove 2s .5s linear;
+  animation: widthMove 2s .5s linear,
+             heightMove 2s .5s linear,
+             colorChange 2.5s linear,
+             xHome 2s .5s linear,             
+             topMove 2s .5s linear;
+}
+
+#wpromptY, #gpromptY, #rpromptY, #bpromptY, #ypromptY, #opromptY {
+  background-color: transparent;
+  border: none;
+  -webkit-animation: yHome 2s .5s linear;
+  animation: yHome 2s .5s linear;
+}
+
+#wpromptZ, #gpromptZ, #rpromptZ, #bpromptZ, #ypromptZ, #opromptZ {
+  background-color: transparent;
+  border: none;
+  -webkit-animation: zHome 2s .5s linear, 
+             leftMove 2s .5s linear;
+  animation: zHome 2s .5s linear, 
+             leftMove 2s .5s linear;
+}
+
+#wpromptZZ, #gpromptZZ, #rpromptZZ, #bpromptZZ, #ypromptZZ, #opromptZZ {
+  background-color: transparent;
+  border: none;
+  -webkit-animation: zMove 2.5s linear;
+  animation: zMove 2.5s linear;  
+}
+
+@-webkit-keyframes widthMove {
+  0% {width: 100px;}  
+  100%  {width: 270px}
+}
+
+@-webkit-keyframes heightMove {
+  0% {height: 100px;}  
+  100% {height: 270px;}
+}
+
+@-webkit-keyframes zMove {
+  0% {-webkit-transform: translateZ(0px);}
+  100%{-webkit-transform: translateZ(150px);}
+}
+
+@-webkit-keyframes xHome {
+  0% {-webkit-transform: rotateX(0deg);}
+  75% {-webkit-transform: rotateX(-35deg);}
+  100% {-webkit-transform: rotateX(-35deg);}  
+}
+
+@-webkit-keyframes yHome {
+  0% {-webkit-transform: rotateY(0deg);}  
+  100% {-webkit-transform: rotateY(-35deg);}  
+}
+
+@-webkit-keyframes zHome {
+  0% {-webkit-transform: rotateZ(0deg);}
+  100% {-webkit-transform: rotateZ(-9deg);} 
+}
+
+@-webkit-keyframes leftMove {
+  0% {left: 0;}
+  50% {left: 60px;}
+  60% {left: -100px;}
+  100% {left: -360px;}
+}
+
+@-webkit-keyframes topMove {
+  0% {top: 0px;}
+  100% {top: 360px;}
+}
+
+.promptSticker {
+  width: 0%;
+  height: 0%;
+  border: 1px solid white;
+  float: left;
+  margin: 1.66;
+  background-color: rgba(4,4,4,1);
+  opacity: .8;
+  -webkit-animation: promptStickerWidth 1s 1.5s linear,
+             promptStickerHeight 1s 1.5s linear;
+  animation: promptStickerWidth 1s 1.5s linear,
+             promptStickerHeight 1s 1.5s linear;
+}
+
+@-webkit-keyframes promptStickerWidth {
+  0% {width: 0;}
+  100% {width: 31%;}
+}
+
+@-webkit-keyframes promptStickerHeight {
+  0% {height: 0;}
+  100% {height: 31%;}
+}
+
+.colorOption {
+  border: 1px solid grey;  
+  float: left;
+  width: 39%;
+  height: 0px;
+  margin: 4%;
+  -webkit-animation: optionColorHeight 2s linear; 
+  animation: optionColorHeight 2s linear;
+}
+
+@-webkit-keyframes optionColorHeight {
+  0% {height: 0px;}
+  100% {height: 22%;}
+}
+
+@-webkit-keyframes cubeSpin {
+  0% {-webkit-transform: rotatey(0deg);}
+  100% {-webkit-transform: rotatey(-360deg);} 
+}
+
+@keyframes cubeSpin {
+  0% {transform: rotatey(0deg);}
+  100% {transform: rotatey(-360deg);} 
+}
+
+.cubeSpin {
+  -webkit-animation: cubeSpin 5s infinite; /* Chrome, Safari, Opera */
+  animation: cubeSpin 5s linear 5;  
+}

@@ -1,0 +1,234 @@
+/*
+There are several arrays that will be manipulated as the cube is 
+created, assigned colors and mainpulated. The main color array, which 
+is also the color class array will look like:
++++++++DONE+++++++++
+
+              w w w
+              w w w
+              w w w
+              
+       G G G  R R R  B B B   
+       G G G  R R R  B B B               
+       G G G  R R R  B B B              
+              
+              Y Y Y
+              Y Y Y
+              Y Y Y
+              
+              O O O
+              O O O
+              O O O
+           
+This array, as well as the arrays below, is actually 6 different arrays.              
+The values of this array will be hard coded.
+
+**************************************************************************
+
+From the "mainColor" array will be generated an array that not only has the 
+color, but also has the colors of the others strikers on the particular 
+"cubelet". Like this:
+    +++++++++++++++++++++DONE++++++++++++++++++++++++
+
+                          WGO   WO   WBO
+                          WG    W    WB
+                          WGR   WR   WBR
+
+        GOW   GW   GWR    RGW   RW   RBW    BRW   BW   BOW
+        GO    G    GR     RG    R    RB     BR    B    BO      
+        GOY   GY   GRY    RGY   RY   RBY    BRY   BY   BOY
+             
+                          YGR   YR   YBR   
+                          YG    Y    YB
+                          YGO   YO   YBO
+        
+                          OGY   OY   OBY
+                          OG    O    OB
+                          OGW   OW   OBW
+                          
+        
+This array could be hard coded, but wont need to be because there will be a 
+function that generates it. The actual intention of the function isn't to create 
+this particular array, but rather an array generated from the user input from 
+the colors of a scrambled cube. The same function would generate the "cubelet" 
+array if passed in the parameter of the top "color home" array. 
+
+Each sticker will have an ID from this array. As the cube is manipulated so is 
+this array. A series of functions will manipulate the array and will be called 
+by the function that is manipulating the cube.
+
+These ID's will determine the color of a sticker.
+
+*******************************************************************************
+HOW THESE HELP WHEN SOLVING THE CUBE
+
+When solving the array IDs will be searched for and manipulated into place in a 
+specific order. I decided to always start with white on top and read in the front 
+initially. I could make it more flexible and solve it exactly as the user inputs 
+it, but He will just be prompted in that order. That in mind, the order cubelets 
+are put into place will be as follows: 
+W 
+WGO 
+WBO 
+WGR 
+WBR 
+WO 
+WG 
+WB   
+Then the cube will be flipped upside down with yellow on top and red in front. 
+Depending on how they are arranged the following 4 cubelets will be manipulated 
+according to which occurs first. (GO or OG), (GR or RG) (RB or BR) and (OB or BO).
+Depending on the arrangement on the edge pieces on the top a series of turns will 
+arrange the other edges regardless of the configuration.
+Only Four corners remain,Again depending on the orientation, a series of turns will 
+get the corners into sition, although they may not have the correct orientation. 
+Depending on the orientation of each corner cubelet, a particular series of twists 
+will get each into place.
+Then the top needs twisted into place.
+
+********************************************************************************** 
+FUNCTIONS:
+
+The above function that converts the array of sticker per cube to stickers per 
+cubelets.   
++++++++DONE+++++++
+
+A function need to be written to outpot the values of the array so that the result 
+can be visually inspected. This will not be a part of the final product.
++++++++DONE+++++++
+
+There will also need to be a function to manipulate the "cubelet array" for each of 
+the following twists:
+
+clockwise
+counterclockwise - maybe this can be a parameter of the same function
+180   
+
+Plug in the side twisted as a parameter
+ 
+tumble90
+tumble-90
+tumble180
+Plug in the direction tumbled as a parameter
+
+To solve the first side it will be easier to have the center layers move independantly. 
+This means three more functions: 
+
+centerRightForwardAcross 
+centerLeftDown Across
+center180
+
+Each of these twist functions will have a sister function that manipulates 
+the cube. That will be tougher and less boring to write than these.
+
+The user may find it odd that there are unlisted ways to twist it and for 
+this reason, in the very final stage, all possible twists should be listed, 
+but to solve it they arenot all required.
+
+The functions involved in prompting the user for the color input of each side. 
+This will involve js to create a form for each side and each sticker on each 
+side.
+
+*****************************************************************************
+
+To initialize the array there should be two methods.
+1) Randomly mess the cube up.
+
+2) The user will input colors from a real cube, side by side, onto the virtual 
+cube.
+
+******************************************************************************
+ALGORYTHYM FOR TURNING A LAYER
+
+To turn a layer, instead of all pieces being individual entities, it seems to 
+attach them to a div and then rotate that div. This creates the following problem: 
+The stickers of a layer become binded together as pieces on a div that is only 
+good to rotate on a single aXis. To rotate on another axis the stickers need to be 
+unbound to one layer and rebound to another.
+
+The solution to this is to remove the divs. with jquery .remove(), from the static 
+"mother" div, attach them to another div that occupies the same space as "mother", 
+but is not static, (call this div "mover" maybe) do the twist, then put them right 
+back on the mother in their new positions. This also meens that each piece will have 
+a new x,y,z translation as well as a new x,y,z ratation.
+
+The best solution I have come up with for this problem is to create an individual 
+class for each position on the cube. The properties of each class will define its 
+x,y,z translation and its x,y,z rotation. As a piece is rotated from one position 
+to the next one class will be removed and the other class added. This way when it 
+is reattached to the mother div, it will have the properties to put it into its new 
+position. 
+
+********************************************************************************
+
+                          WHITE                          
+                          WLT   WT   WRT
+                          WL    WC    WR
+                          WBL   WB   WBR
+
+        GREEN             RED               BLUE                  
+        GLT   GT   GRT    RLT   RT   RRT    BLT   BT   BRT
+        GL    GC   GR     RL    RC   RR     BL    BC   BR      
+        GBL   GB   GBR    RBL   RB   RBR    BBL   BB   BBR
+                          
+                          YELLOW
+                          YLT   YT   YRT   
+                          YL    YC   YR
+                          YBL   YB   YBR
+                        
+                          ORANGE
+                          OLT   OT    ORT
+                          OL    OC    OR
+                          OBL   OB    OBR
+                          
+If there is a class for each and every cubelet's home location that describes its 
+xyz translation and xyz rotation. And that location is stored in an array, call it 
+"classRay", which will be a fixed position array, i.e. it doesn't change as the cube 
+is manipulated, then the coordinated of the color cubelet array, which isn't fixed 
+but is exactly the same size as classRay, will be the coordinates of each sticker'new
+class for translation and rotation.
+
+Find the index in "cubelet color array" of the cell that contains the name of an ID. 
+
+In the "position array" at that index is the name of a class, that class is added to 
+the currrent element. That class has the positional information for that element.
+
+********************************************************************************
+THE CONTROLS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                          
+                          
+
+
+
+
+*/ 

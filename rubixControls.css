@@ -1,0 +1,159 @@
+.sliderControls {
+  background-color: silver;  
+  margin: -440px -40px;
+  padding: 25px 25px 0 25px;
+  width: 280px;
+  border: 1px solid black; 
+  visibility: hidden;
+}
+
+#inputInstructions {
+	display: hidden;
+	margin: 0;
+	pading: 0;
+	width: 0;
+	height: 0;
+	overflow: hidden;
+	position: absolute;
+	transition: .5s;
+}
+
+.slider {
+  width: 270px;
+  padding: 10px 0 20px 0;
+  margin: auto 5px;
+}
+
+h1 {
+  margin-top: 3px;
+  font-size: .9em;
+}
+
+.buttonControls {
+  float: right;
+  background-color: transparent;  
+  margin-top: 300px;
+  margin-right: -50px;
+  padding: 10px 0 0 10px;
+  border: none; 
+  width: 20%;
+  min-width: 205px;
+}
+
+.buttonGroup {
+  float: left;
+  margin: 3px auto;
+  padding: 3px;
+  height: 6%;
+  width: 94.5%;
+  border: 1px solid grey;
+  min-height: 45px;
+}
+
+button {
+  width: 90px;
+  height: 90%;
+  margin: auto;
+  font-size: .8em;
+  text-align: center;
+  line-height: .9em;
+}
+
+.input, .solve {
+  height: 10%;
+}
+
+.solve {
+  float: right;
+  margin-right: 10px;
+}
+
+.whiteButton { background-color: white;}
+.blueButton { background-color: blue;}
+.redButton { background-color: red;}
+.greenButton { background-color: green;}
+.yellowButton { background-color: yellow;}
+.orangeButton { background-color: orange;}
+
+.rotclass {
+	float: left;
+	border: 1px solid black;
+	border-radius: 50%;
+	margin: 0 10px; /* temporary */
+	width: 40px;
+	height: 40px;
+	line-height: 50px;
+	padding: 0;
+}
+.cw {
+	background-image: url("rubixImages/cw.png"); 
+	background-size: 40px 40px;
+    background-repeat: no-repeat;
+	background-position: center;
+}
+
+.ccw {
+	background-image: url("rubixImages/ccw.png");
+	background-size: 40px 40px;
+    background-repeat: no-repeat;
+	background-position: center;	
+}
+
+.c180 {
+	padding-left: 0 0 0 10px;
+	background-color: white;
+}
+
+.c180 p {
+	padding: 0 0 0 5px;;
+	margin: 0;
+}
+.rotClass:hover {
+	border: 2px solid white;
+}
+#whiteCw:hover {
+  opacity: 1;
+  transform: rotate(120deg);
+  transition: 1s;
+}
+
+span {
+	margin-right: 10px;
+	font-size: 1.3em;
+}
+.whiteCol {
+	color: white;
+}
+.greenCol {
+	color: lime;
+}
+.redCol {
+	color: red;
+}
+.yellowCol {
+	color: yellow;
+}
+.blueCol {
+	color: blue;
+}
+.orangeCol {
+	color: orange;
+}
+
+#width {
+	position: fixed;
+	top: 10px;
+	left: 10px;
+	width: 120px;
+	height: 40px;
+	color: white;
+}
+
+.inputInstructions h1 {
+	margin: 0;
+	border: 1px solid black;
+}
+.inputInstructions p {
+	margin: 3px 0 0 0;
+	border: 1px solid black;
+}

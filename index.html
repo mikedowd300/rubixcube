@@ -1,0 +1,128 @@
+<!DOCTYPE.html>
+<html>
+  <head>
+    <title>VIRTUAL CUBE</title>
+    <link rel="stylesheet" type="text/css" href="RubikDcube.css">
+    <link rel="stylesheet" type="text/css" href="rubixControls.css">
+    <link rel="stylesheet" type="text/css" href="rubikDkeyframes.css">
+  </head>
+  <body>
+   <!--- <div id="width"></div>  temporary -----> 
+    <div class="wrapper">
+      <div class="zplane plane">
+        <div class="yplane plane">
+          <div class="xplane plane static" id="static">
+            <div class="plane dynamic" id="dynamic">
+            </div>
+            <!-- corner divs -->
+            <div id="wgo" class="sticker wlt">wgo</div>
+            <div id="wbo" class="sticker wrt">wbo</div>
+            <div id="wgr" class="sticker wbl">wgr</div>
+            <div id="wbr" class="sticker wbr">wbr</div>
+            <div id="gow" class="sticker glt">gow</div>
+            <div id="grw" class="sticker grt">grw</div>
+            <div id="goy" class="sticker gbl">goy</div>
+            <div id="gry" class="sticker gbr">gry</div>
+            <div id="rgw" class="sticker rlt">rgw</div>
+            <div id="rbw" class="sticker rrt">rbw</div>
+            <div id="rgy" class="sticker rbl">rgy</div>
+            <div id="rby" class="sticker rbr">rby</div>
+            <div id="brw" class="sticker blt">brw</div>
+            <div id="bow" class="sticker brt">bow</div>
+            <div id="bry" class="sticker bbl">bry</div>
+            <div id="boy" class="sticker bbr">boy</div>
+            <div id="ygo" class="sticker ybl">ygo</div>
+            <div id="ybo" class="sticker ybr">ybo</div>
+            <div id="ygr" class="sticker ylt">ygr</div>
+            <div id="ybr" class="sticker yrt">ybr</div>
+            <div id="ogw" class="sticker ort">ogw</div>
+            <div id="obw" class="sticker olt">obw</div>
+            <div id="ogy" class="sticker obr">ogy</div>
+            <div id="oby" class="sticker obl">oby</div>
+            <!-- center divs -->
+            <div id="w" class="sticker wc">w</div>
+            <div id="g" class="sticker gc">g</div>
+            <div id="r" class="sticker rc">r</div>
+            <div id="b" class="sticker bc">b</div>
+            <div id="y" class="sticker yc">y</div>
+            <div id="o" class="sticker oc">o</div>
+            <!-- edge divs -->
+            <div id="wo" class="sticker wt">wo</div>
+            <div id="wg" class="sticker wl">wg</div>
+            <div id="wb" class="sticker wr">wb</div>
+            <div id="wr" class="sticker wb">wr</div>
+            <div id="gw" class="sticker gt">gw</div>
+            <div id="go" class="sticker gl">go</div>
+            <div id="gr" class="sticker gr">gr</div>
+            <div id="gy" class="sticker gb">gy</div>
+            <div id="rw" class="sticker rt">rw</div>
+            <div id="rg" class="sticker rl">rg</div>
+            <div id="rb" class="sticker rr">rb</div>
+            <div id="ry" class="sticker rb">ry</div> 
+            <div id="bw" class="sticker bt">bw</div>
+            <div id="br" class="sticker bl">br</div>
+            <div id="bo" class="sticker br">bo</div>
+            <div id="by" class="sticker bb">by</div>  
+            <div id="yo" class="sticker yb">yo</div>
+            <div id="yg" class="sticker yl">yg</div>
+            <div id="yb" class="sticker yr">yb</div>
+            <div id="yr" class="sticker yt">yr</div>  
+            <div id="ow" class="sticker ot">ow</div>
+            <div id="og" class="sticker or">og</div>
+            <div id="ob" class="sticker ol">ob</div>
+            <div id="oy" class="sticker ob">oy</div>              
+          </div>
+        </div>
+      </div>
+      <div class="sliderControls">                   
+        <input class="slider" type="range" id="xRange" onclick="xSlide()" min="-180" max="180" value="50"/>           
+        <input class="slider" type="range" id="yRange" onclick="ySlide()" min="-180" max="180" value="-20"/>    
+        <input class="slider" type="range" id="zRange" onclick="zSlide()" min="-180" max="180" value="30"/> 
+        <h1 class="messenger"></h1>  				
+      </div>
+	  <div id="inputInstructions">
+		<h1>When entering in the colors from an actual cube: </h1>
+		<p>The color of a side depends on the color of the centrer sticker. Ex: the red side is the side with the red sticker in the middle. For this reason, when prompted to enter in the colors of a side, you will not need to enter in the center sticker. You must, however, pay close attention to the colors of the adjacents sides. Ex: you are entering a yellow corner sticker on the the white side, you notice that this piece is adjacent to the green side and the red side (determined by the colors of their center stickers), it is important the yellow sticker be placed in the same corner on the virtual cube. </p><p>To ensure this, notice the virtual cube as it is oriented on screen and orient the actual cube the same way and entering the colors will go quickly and correctly. </p><p>When you are satisfied that you have entered in a sides colors correctly, click the middle sticker and you will be taken to the next side, The virtual cube will also re-orient itself to assist with input for that side. When the middle sticker for the last cube is clicked, the cube will automatically solve itself. </p><p>If you make an error when entering the sticker colors, the cube may: not do anything, or, the cube may seem to have too many red squares, or, there may be no color at all. If any of these happen, refresh the page and start over. </p><p>After the cube solves itself, the moves will be displayed so you can solve your own.</p>
+	  </div>
+      <div class="buttonControls">
+        <button class="input" onclick="colorInput()">Input Colors</button>
+        <button class="solve" onclick="solveCube()">Solve</button>
+        <div class="buttonGroup whiteButton">
+          <div class="rotClass cw" id='whiteCw' onclick="whiteClick(90, 1, 'clk')" onmouseover="preview()" onmouseout="unpreview()"></div>
+          <div class="rotClass ccw" id='whiteCcw' onclick="whiteClick(-90, 3, 'clk')"></div>
+          <div class="rotClass c180" id='white180' onclick="whiteClick(180, 2, 'clk')"><p>180&#176</p></div>
+        </div>
+        <div class="buttonGroup blueButton">
+          <div class="rotClass cw" id='blueCw' onclick="blueClick(90, 1, 'clk')"></div>
+          <div class="rotClass ccw" id='blueCcw' onclick="blueClick(-90, 3, 'clk')"> </div>
+          <div class="rotClass c180" id='blue180' onclick="blueClick(180, 2, 'clk')"><p>180&#176</p></div>
+        </div>
+        <div class="buttonGroup redButton">
+          <div class="rotClass cw" id='redCw' onclick="redClick(90, 1, 'clk')"> </div>
+          <div class="rotClass ccw" id='redCcw' onclick="redClick(-90, 3, 'clk')"></div>
+          <div class="rotClass c180" id='red180' onclick="redClick(180, 2, 'clk')"><p>180&#176</p></div>
+        </div>
+        <div class="buttonGroup greenButton">
+          <div class="rotClass cw" id='greenCw' onclick="greenClick(-90, 1, 'clk')"> </div>
+          <div class="rotClass ccw" id='greenCcw' onclick="greenClick(90, 3, 'clk')"></div>
+          <div class="rotClass c180" id='green180' onclick="greenClick(180, 2, 'clk')"><p>180&#176</p></div>
+        </div>
+        <div class="buttonGroup yellowButton">
+          <div class="rotClass cw" id='yellowCw' onclick="yellowClick(-90, 1, 'clk')"> </div>
+          <div class="rotClass ccw" id='yellowCcw' onclick="yellowClick(90, 3, 'clk')"> </div>
+          <div class="rotClass c180" id='yellow180' onclick="yellowClick(180, 2, 'clk')"><p>180&#176</p></div>
+        </div>
+        <div class="buttonGroup orangeButton">
+          <div class="rotClass cw" id='orangeCw' onclick="orangeClick(-90, 1, 'clk')"> </div>
+          <div class="rotClass ccw" id='orangeCcw' onclick="orangeClick(90, 3, 'clk')"> </div>
+          <div class="rotClass c180" id='orange180' onclick="orangeClick(180, 2, 'clk')"><p>180&#176</p></div>
+        </div>
+      </div>
+    </div>    
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="rubikDarrays.js"></script>
+	  <script src="rubikD.js"></script> 
+    <script src="rubikDcolorinput.js"></script>
+    <script src="rubikSolveD.js"></script>        
+  </body>
+</html>

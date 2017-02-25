@@ -1,0 +1,135 @@
+<!DOCTYPE.html>
+<html>
+  <head>
+    <title>Rubic Version D</title>
+    <link rel="stylesheet" type="text/css" href="RubikDcube.css">
+    <link rel="stylesheet" type="text/css" href="rubikDcontrols.css">
+    <link rel="stylesheet" type="text/css" href="rubikDkeyframes.css">
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="zplane plane">
+        <div class="yplane plane">
+          <div class="xplane plane static" id="static">
+            <div class="plane dynamic" id="dynamic">
+            </div>
+            <!-- corner divs -->
+            <div id="wgo" class="sticker wlt">wgo</div>
+            <div id="wbo" class="sticker wrt">wbo</div>
+            <div id="wgr" class="sticker wbl">wgr</div>
+            <div id="wbr" class="sticker wbr">wbr</div>
+            <div id="gow" class="sticker glt">gow</div>
+            <div id="grw" class="sticker grt">grw</div>
+            <div id="goy" class="sticker gbl">goy</div>
+            <div id="gry" class="sticker gbr">gry</div>
+            <div id="rgw" class="sticker rlt">rgw</div>
+            <div id="rbw" class="sticker rrt">rbw</div>
+            <div id="rgy" class="sticker rbl">rgy</div>
+            <div id="rby" class="sticker rbr">rby</div>
+            <div id="brw" class="sticker blt">brw</div>
+            <div id="bow" class="sticker brt">bow</div>
+            <div id="bry" class="sticker bbl">bry</div>
+            <div id="boy" class="sticker bbr">boy</div>
+            <div id="ygo" class="sticker ybl">ygo</div>
+            <div id="ybo" class="sticker ybr">ybo</div>
+            <div id="ygr" class="sticker ylt">ygr</div>
+            <div id="ybr" class="sticker yrt">ybr</div>
+            <div id="ogw" class="sticker ort">ogw</div>
+            <div id="obw" class="sticker olt">obw</div>
+            <div id="ogy" class="sticker obr">ogy</div>
+            <div id="oby" class="sticker obl">oby</div>
+            <!-- center divs -->
+            <div id="w" class="sticker wc">w</div>
+            <div id="g" class="sticker gc">g</div>
+            <div id="r" class="sticker rc">r</div>
+            <div id="b" class="sticker bc">b</div>
+            <div id="y" class="sticker yc">y</div>
+            <div id="o" class="sticker oc">o</div>
+            <!-- edge divs -->
+            <div id="wo" class="sticker wt">wo</div>
+            <div id="wg" class="sticker wl">wg</div>
+            <div id="wb" class="sticker wr">wb</div>
+            <div id="wr" class="sticker wb">wr</div>
+            <div id="gw" class="sticker gt">gw</div>
+            <div id="go" class="sticker gl">go</div>
+            <div id="gr" class="sticker gr">gr</div>
+            <div id="gy" class="sticker gb">gy</div>
+            <div id="rw" class="sticker rt">rw</div>
+            <div id="rg" class="sticker rl">rg</div>
+            <div id="rb" class="sticker rr">rb</div>
+            <div id="ry" class="sticker rb">ry</div> 
+            <div id="bw" class="sticker bt">bw</div>
+            <div id="br" class="sticker bl">br</div>
+            <div id="bo" class="sticker br">bo</div>
+            <div id="by" class="sticker bb">by</div>  
+            <div id="yo" class="sticker yb">yo</div>
+            <div id="yg" class="sticker yl">yg</div>
+            <div id="yb" class="sticker yr">yb</div>
+            <div id="yr" class="sticker yt">yr</div>  
+            <div id="ow" class="sticker ot">ow</div>
+            <div id="og" class="sticker or">og</div>
+            <div id="ob" class="sticker ol">ob</div>
+            <div id="oy" class="sticker ob">oy</div>              
+          </div>
+        </div>
+      </div>
+      <div class="sliderControls">                   
+        <input class="slider" type="range" id="xRange" onclick="xSlide()" min="-180" max="180" value="50"/>           
+        <input class="slider" type="range" id="yRange" onclick="ySlide()" min="-180" max="180" value="-20"/>    
+        <input class="slider" type="range" id="zRange" onclick="zSlide()" min="-180" max="180" value="30"/> 
+        <h1 class="messenger"></h1>    
+      </div>
+      <div class="buttonControls">
+        <button class="input" onclick="colorInput()">Input Colors</button>
+        <button class="solve" onclick="solveCube()">Solve</button>
+        <div class="buttonGroup whiteButton">
+          <button class="rotClass" id='whiteCw' onclick="whiteClick(90, 1)">ClockWise</button>
+          <button class="rotClass" id='whiteCcw' onclick="whiteClick(-90, 3)">CntrClckWse</button>
+          <button class="rotClass" id='white180' onclick="whiteClick(180, 2)">180&#176</button>
+        </div>
+        <div class="buttonGroup blueButton">
+          <button class="rotClass" id='blueCw' onclick="blueClick(90, 1)">ClockWise</button>
+          <button class="rotClass" id='blueCcw' onclick="blueClick(-90, 3)">CntrClckWse </button>
+          <button class="rotClass" id='blue180' onclick="blueClick(180, 2)">180&#176 </button>
+        </div>
+        <div class="buttonGroup redButton">
+          <button class="rotClass" id='redCw' onclick="redClick(90, 1)">ClockWise </button>
+          <button class="rotClass" id='redCcw' onclick="redClick(-90, 3)">CntrClckWse</button>
+          <button class="rotClass" id='red180' onclick="redClick(180, 2)">180&#176 </button>
+        </div>
+        <div class="buttonGroup greenButton">
+          <button class="rotClass" id='greenCw' onclick="greenClick(-90, 1)">ClockWise </button>
+          <button class="rotClass" id='greenCcw' onclick="greenClick(90, 3)">CntrClckWse</button>
+          <button class="rotClass" id='green180' onclick="greenClick(180, 2)">180&#176</button>
+        </div>
+        <div class="buttonGroup yellowButton">
+          <button class="rotClass" id='yellowCw' onclick="yellowClick(-90, 1)">ClockWise </button>
+          <button class="rotClass" id='yellowCcw' onclick="yellowClick(90, 3)">CntrClckWse </button>
+          <button class="rotClass" id='yellow180' onclick="yellowClick(180, 2)">180&#176</button>
+        </div>
+        <div class="buttonGroup orangeButton">
+          <button class="rotClass" id='orangeCw' onclick="orangeClick(-90, 1)">ClockWise </button>
+          <button class="rotClass" id='orangeCcw' onclick="orangeClick(90, 3)">CntrClckWse </button>
+          <button class="rotClass" id='orange180' onclick="orangeClick(180, 2)">180&#176</button>
+        </div>
+        <!-- <div class="buttonGroup midButton">
+          <button class="rotClass" id='tumbleCw' onclick="clickMidX(90, 1)">midX90 </button>
+          <button class="rotClass" id='tumbleCw' onclick="clickMidX(-90, 3)">midX-90 </button>
+          <button class="rotClass" id='tumbleCw' onclick="clickMidX(180, 2)">midX180 </button>
+          <button class="rotClass" id='tumbleCcw' onclick="clickMidY(90, 1)">midY90 </button>
+          <button class="rotClass" id='tumbleCcw' onclick="clickMidY(-90, 3)">midY-90 </button>
+          <button class="rotClass" id='tumbleCw' onclick="clickMidY(180, 2)">midX180 </button>
+          <button class="rotClass" id='tumble180' onclick="clickMidZ(-90, 3)">midZ90 </button>          
+          <button class="rotClass" id='tumble180' onclick="clickMidZ(90, 1)">midZ-90</button>
+          <button class="rotClass" id='tumbleCw' onclick="clickMidZ(180, 2)">midX180</button>
+        </div>-->
+      </div>
+    </div>    
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="rubikDarrays.js"></script>
+	  <script src="rubikD.js"></script> 
+    <script src="rubikDcolorinput.js"></script>
+    <script src="rubikSolveD.js"></script>        
+  </body>
+</html>
+

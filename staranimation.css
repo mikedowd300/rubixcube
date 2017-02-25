@@ -1,0 +1,77 @@
+/* --------------------------
+  Base
+--------------------------- */
+
+body {
+  padding-top: 60px;
+	background: #0f4e7a;
+}
+
+svg {
+	margin: auto;
+  display: block;
+	width: 28%;
+}
+
+/* --------------------------
+  Keyframes
+--------------------------- */
+@keyframes slide {
+	100%  {
+		transform: translate3d(0, 0, 0);
+	}
+}
+
+@keyframes pulse {
+	0% {
+			transform: scale(1);
+			fill: white;
+	}
+	50% {
+			transform: scale(1.4);
+			fill: yellow;
+	}
+	100% {
+			transform: scale(1);
+			fill:	white;
+	}
+}
+
+@keyframes drawcircle {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		stroke-dashoffset: 0;	
+		opacity: .7;
+	}
+}
+
+
+/* --------------------------
+  SVG Styles
+--------------------------- */
+
+.stars-bg {	
+	opacity: .9;
+	stroke-width: 4px;
+	stroke-dasharray: 800;
+	stroke-dashoffset: 800;	
+	animation: drawcircle 2.5s ease-out 1.5s;
+}
+.stara {
+	transform-origin: 50% 50%;
+	transform: translate3d(0, 180px, 0);	
+	animation: slide .5s ease-in forwards;/*, pulse ease-in .5s;	*/
+}
+.starb {
+	transform: translate3d(0, -180, 0);
+	transform-origin: 50% 50%;
+	animation: slide 1.3s linear;/*, pulse .5s linear 1s;	*/
+}
+.starc {
+	transform: translate3d(0, -180, 0);
+	transform-origin: 50% 50%;
+	animation: slide 1.3s linear;/*, pulse .5s ease-out 1.5s;		*/
+}
+

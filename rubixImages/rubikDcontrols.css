@@ -1,0 +1,87 @@
+.sliderControls {
+  background-color: silver;  
+  margin: -440px -60px;
+  padding: 25px 25px 0 25px;
+  width: 300px;
+  border: 1px solid black; 
+  visibility: hidden;
+}
+
+.slider {
+  width: 270px;
+  padding: 10px 0 20px 0;
+  margin: auto 5px;
+}
+
+h1 {
+  margin-top: 3px;
+  font-size: .9em;
+}
+
+.buttonControls {
+  float: right;
+  background-color: silver;  
+  margin-top: 300px;
+  margin-right: -50px;
+  padding: 10px 0 0 10px;
+  border: 1px solid black; 
+  width: 30%;
+  height: 500px;
+}
+
+.buttonGroup {
+  float: left;
+  margin: 3px auto;
+  padding: 3px;
+  height: 6.5%;
+  width: 94.5%;
+  border: 1px solid grey;
+}
+
+button {
+  width: 90px;
+  height: 90%;
+  margin: auto;
+  font-size: .8em;
+  text-align: center;
+  line-height: .9em;
+}
+
+.input, .solve {
+  height: 10%;
+}
+
+.solve {
+  float: right;
+  margin-right: 10px;
+}
+
+.whiteButton { background-color: white;}
+.blueButton { background-color: blue;}
+.redButton { background-color: red;}
+.greenButton { background-color: green;}
+.yellowButton { background-color: yellow;}
+.orangeButton { background-color: orange;}
+.midButton { 
+  background-color: black;
+  float: left;
+  margin: 3px auto;
+  padding: 3px;
+  height: 90px;
+  width: 279px;
+  border: 1px solid grey;
+  visibility: hidden;
+}
+
+.midButton .rotClass {
+ /* margin-top: 3px; */
+}
+
+.midButton {
+  height: 0;
+}
+
+.rotclass {
+  width: 32%;
+  margin: auto;
+}
